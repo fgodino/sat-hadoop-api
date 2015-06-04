@@ -7,7 +7,8 @@ var createConnection = function (host, port, user, password) {
     host: host,
     port: port,
     user: user,
-    password: password
+    password: password,
+    database: testDB
   });
 
   connection.connect(function (err) {
@@ -15,7 +16,7 @@ var createConnection = function (host, port, user, password) {
       console.log('error connecting to database: ' + err.stack);
     } else {
       console.log ('connected as id: ' + connection.threadId);
+      createTables();
     }
   });
 }
-
